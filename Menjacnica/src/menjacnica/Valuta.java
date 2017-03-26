@@ -8,22 +8,31 @@ public class Valuta {
 	private String skraceniNaziv;
 	private LinkedList<Kurs> kurs;
 	
-	public String getNazic() {
+	public String getNaziv() {
 		return naziv;
 	}
-	public void setNazic(String nazic) {
-		this.naziv = nazic;
+	public void setNazic(String naziv) {
+		if( naziv.isEmpty() || naziv == null){
+			throw new RuntimeException("Naziv ne sme biti prazan string ili null");
+		}
+		this.naziv = naziv;
 	}
 	public String getSkraceniNaziv() {
 		return skraceniNaziv;
 	}
 	public void setSkraceniNaziv(String skraceniNaziv) {
+		if( skraceniNaziv.isEmpty() || skraceniNaziv == null){
+			throw new RuntimeException("Skraceni naziv ne sme biti prazan string ili null");
+		}
 		this.skraceniNaziv = skraceniNaziv;
 	}
 	public LinkedList<Kurs> getKurs() {
 		return kurs;
 	}
 	public void setKurs(LinkedList<Kurs> kurs) {
+		if(kurs.isEmpty()){
+			throw new RuntimeException("Kurs (lista) ne sme biti prazna");
+		}
 		this.kurs = kurs;
 	}
 	@Override
@@ -43,10 +52,11 @@ public class Valuta {
 	public boolean equals(Object obj) {
 		if( obj instanceof Valuta){
 			Valuta v = (Valuta) obj;
-			if(v.getNazic().equals(naziv) && v.getSkraceniNaziv().equals(skraceniNaziv)){
+			if(v.getNaziv().equals(naziv) && v.getSkraceniNaziv().equals(skraceniNaziv)){
 				return true;
 			}
+			return false;
 		}
-		return false;
+		throw new RuntimeException("Objekat nije tipa Valuta");
 	}
 }
