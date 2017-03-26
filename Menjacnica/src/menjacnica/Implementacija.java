@@ -9,7 +9,6 @@ import menjacnica.Kurs;
 
 public class Implementacija implements Interfejs {
 	
-	private LinkedList<Valuta> valuta = new LinkedList<>();
 
 	private LinkedList<Valuta> valute = new LinkedList<>();	
 	
