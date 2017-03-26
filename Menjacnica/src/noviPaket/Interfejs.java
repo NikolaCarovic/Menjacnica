@@ -10,5 +10,5 @@ public interface Interfejs {
 	
 	public void obrisiKursValuteZaDan(String naziv, GregorianCalendar datum);
 	
-	public void pronadjiKursZaDan(String naziv, GregorianCalendar datum);
+	public Kurs pronadjiKursZaDan(String naziv, GregorianCalendar datum);
 }
